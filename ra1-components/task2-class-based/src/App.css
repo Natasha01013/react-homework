@@ -6,6 +6,8 @@ html {
   height: 100%;
   padding: 0;
   overflow-x:hidden;
+  display: flex; 
+  flex-direction: column;
 }
 
 h1,
@@ -20,6 +22,7 @@ h3 {
   display: -ms-flexbox;
   display: flex;
   height: 100vh;
+  width: 250vh;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
@@ -92,7 +95,7 @@ h3 {
   height: 550px;
   width: 400px;
   background: #ccc;
-  background: url('../img/item-blue.jpg');
+  background: url('./img/item-blue.jpg');
   background-size: cover;
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
   z-index: 10;
@@ -116,7 +119,7 @@ h3 {
   height:100%;
   opacity:0;
   filter: alpha(opacity=0);
- background:url('../img/item-black.jpg');
+ background:url('./img/item-black.jpg');
   background-size:cover;
   -webkit-transition:opacity .4s ease;
           transition:opacity .4s ease;
@@ -126,9 +129,9 @@ h3 {
   background: #457;
   position: absolute;
   width: 120%;
-  height: 400px;
+  height: 500px;
   left: -50px;
-  top: -80px;
+  top: -100px;
   -webkit-transform: rotate(-5deg);
       -ms-transform: rotate(-5deg);
           transform: rotate(-5deg);
@@ -180,6 +183,7 @@ button {
   border:none;
   font-weight:400;
   height:40px;
+  border-radius: 0;
   margin-top:auto;
   margin-bottom:auto;
   padding-left:25px;
