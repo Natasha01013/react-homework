@@ -1,0 +1,23 @@
+.selected-filter {
+  background-color: black;
+  color: white;
+}
+
+.normal-filter {
+  font-weight: normal;
+}
+
+.project-list-container {
+  margin: 10px;
+  /* display: flex;
+  flex-wrap: wrap; */
+  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  grid-auto-rows: masonry;
+}
+
+.project-list-container img {
+  width: 100%;
+  height: auto;
+}
