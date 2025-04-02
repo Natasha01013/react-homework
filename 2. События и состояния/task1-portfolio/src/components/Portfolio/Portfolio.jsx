@@ -1,92 +1,11 @@
 import React, { useState } from 'react';
-
-// Компонент Toolbar c набором кнопок фильтров без состояния 
-const Toolbar = ({ filters, selected, onSelectFilter }) => { //от Portfolio мы передаём три свойства в функциональный компонент
-  return (
-    <div>
-      {filters.map((filter) => ( //используем метод map для итерации по массиву filters
-        <button
-          key={filter} //уникальный ключ, необходимый React для эффективного обновления списка кнопок
-          onClick={() => onSelectFilter(filter)}
-          className={ selected === filter ? 'selected-filter' : 'normal-filter' }>
-          {filter} {/*текст кнопки, который отображает название фильтра */}
-        </button>
-      ))}
-    </div>
-  );
-};
-
-// Компонент ProjectList для отображения картинок без состояния 
-const ProjectList = ({ projects }) => { //Компонент ProjectList принимает МАССИВ объектов projects 
-  return (
-    <div className="project-list-container"> 
-      {projects.map((project, index) => (//используем метод map для итерации по массиву
-        <img
-          key={index}//уникальный ключ, необходимый React для эффективного обновления списка картинок
-          src={project.img}
-          alt={project.category}
-        />
-      ))}
-    </div>
-  );
-};
+import images from '../data/allProjects';
+import ProjectList from './ProjectList';
+import Toolbar from './Toolbar';
 
 // Компонент Portfolio с состоянием
 const Portfolio = () => {
-  const allProjects = [ //массив картинок
-    {
-      img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/mon.jpg",
-      category: "Business Cards"
-    }, {
-      img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/200.jpg",
-      category: "Websites"
-    }, {
-      img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/emi_haze.jpg",
-      category: "Websites"
-    }, {
-      img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/codystretch.jpg",
-      category: "Websites"
-    }, {
-      img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/Triangle_003.jpg",
-      category: "Business Cards"
-    }, {
-      img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/place200x290.png",
-      category: "Websites"
-    }, {
-      img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/200.jpg",
-      category: "Websites"
-    }, {
-      img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/transmission.jpg",
-      category: "Business Cards"
-    }, {
-      img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/place200x290_1.png",
-      category: "Websites"
-    }, {
-      img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/place200x290_2.png",
-      category: "Flayers"
-    }, {
-      img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/the_ninetys_brand.jpg",
-      category: "Websites"
-    }, {
-      img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/dia.jpg",
-      category: "Business Cards"
-    }, {
-      img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/Triangle_350x197.jpg",
-      category: "Websites"
-    }, {
-      img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/emi_haze.jpg",
-      category: "Websites"
-    }, {
-      img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/transmission.jpg",
-      category: "Business Cards"
-    }, {
-      img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/Triangle_350x197_1.jpg",
-      category: "Websites"
-    }, {
-      img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/place200x290_3.png",
-      category: "Flayers"
-    }
-  ];
+  const allProjects = images;
 
   //useState - хук
   //selectedFilter: Переменная состояния, которая хранит текущий выбранный фильтр.
