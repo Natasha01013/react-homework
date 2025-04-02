@@ -1,0 +1,45 @@
+.movie-card {
+  width: 300px;
+  border: 1px solid #ccc;
+  margin: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.movie-card-content {
+  padding: 10px;
+}
+
+.movie-card-title {
+  margin-top: 0;
+}
+
+.movie-card-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.movie-card-buy {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.movie-card-details {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.card-body-stars {
+  list-style: none; 
+  padding: 0; 
+  margin: 0; 
+  display: flex; 
+}
