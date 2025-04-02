@@ -1,14 +1,15 @@
 import React from 'react';
 
 //свойства объекта data из data.json, которые будем использовать
-interface ListingItem {
+//Отражаем свойства не обязательными, т.к. их может нет быть в data
+export interface ListingItem {
   listing_id: number; //уникальный идентификатор предложения
-  url: string; //ссылка на предложение из каталога
-  MainImage: { url_570xN: string }; // информация об изображении, необходимо использовать свойство url_570xN для получения адреса главной картинки
-  title: string; //название предложения
-  currency_code: string; //код валюты
-  price: string; //цена
-  quantity: number; //доступное количество
+  url?: string; //ссылка на предложение из каталога
+  MainImage?: { url_570xN?: string }; // информация об изображении, необходимо использовать свойство url_570xN для получения адреса главной картинки
+  title?: string; //название предложения
+  currency_code?: string; //код валюты
+  price?: string; //цена
+  quantity?: number; //доступное количество
 }
 
 // Определяем свойство items, которое является массивом ([]). 
@@ -23,7 +24,10 @@ interface ListingProps {
 // <ListingProps> берет свойства из интерфейса ListingProps
 const Listing: React.FC<ListingProps> = ({ items }) => { 
   // Функция выводит цену (price) в зависимости от кода валюты (currencyCode)
-  const formatPrice = (price: string, currencyCode: string): string => {
+  const formatPrice = (price: string | undefined, currencyCode: string | undefined): string => {
+    if (!price || !currencyCode) {
+      return '';  //добавляем заглушку в случае undefined
+    }
     switch (currencyCode) {
       case 'USD':
         return `$${price}`;
@@ -35,7 +39,10 @@ const Listing: React.FC<ListingProps> = ({ items }) => {
   };
 
   //Функция возвращает класс CSS для подсветки остатка
-  const getQuantityClass = (quantity: number): string => {
+  const getQuantityClass = (quantity: number | undefined): string => {
+    if (quantity === undefined) {
+      return '';  //добавляем заглушку в случае undefined
+    }
     if (quantity <= 10) {
       return 'level-low';
     } else if (quantity <= 20) {
@@ -46,7 +53,10 @@ const Listing: React.FC<ListingProps> = ({ items }) => {
   };
 
   //Функция обрезает название предложения до 50 символов
-  const truncateTitle = (title: string): string => {
+  const truncateTitle = (title: string | undefined): string => {
+    if (!title) {
+      return ''; //добавляем заглушку в случае undefined
+    }
     //Если название предложения превышает 50 символов, то необходимо выводить только первые 50 символов, и добавлять символ … в конце
     if (title.length > 50) {
       return title.substring(0, 50) + '...';
