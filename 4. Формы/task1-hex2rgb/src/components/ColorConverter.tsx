@@ -5,7 +5,6 @@ const ColorConverter: React.FC = () => {
   const [hexValue, setHexValue] = useState(''); 
   const [rgbValue, setRgbValue] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  // const [backgroundColor, setBackgroundColor] = useState('');
 
   //Функция преобразования HEX-кода в rgb
   const hexToRgb = (hex: string): string | null => {
@@ -27,22 +26,20 @@ const ColorConverter: React.FC = () => {
     const newHexValue = event.target.value;//значение элемента, на котором происходит событие (что в поле ввода HEX)
     setHexValue(newHexValue);
 
-    if (newHexValue.length === 7) {//если в поле ввода HEX 7 символов
+    if (newHexValue.length === 7) {
       const rgb = hexToRgb(newHexValue);
       setRgbValue(rgb || '');
-      // setBackgroundColor(rgb ? newHexValue : '');
-      document.body.style.backgroundColor = rgb ? newHexValue : ''; // Изменяем фон 
+      document.body.style.backgroundColor = rgb ? newHexValue : '';  
       setErrorMessage(rgb ? '' : 'Ошибка!');
     } else {
       setRgbValue('');
-      // setBackgroundColor('');
-      document.body.style.backgroundColor = ''; // Сбрасываем фон 
+      document.body.style.backgroundColor = ''; 
       setErrorMessage('');
       }
   }
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div>
       <div>
         <label htmlFor="hexInput"></label>
         <input
@@ -51,27 +48,17 @@ const ColorConverter: React.FC = () => {
           value={hexValue}
           onChange={handleHexInputChange}
           placeholder="#RRGGBB"
-          style={{
-            fontWeight: 'bold', 
-            marginLeft: '15px',
-            textAlign: 'center',
-            height: '40px',
-          }}
         />
       </div>
-      <div style={{ marginTop: '10px' }}>
+      <div className='form-grb'>
         <label htmlFor="rgbInput"></label>
         <input
           type="text"
           id="rgbInput"
-          value={errorMessage || rgbValue} // Отображаем ошибку или RGB значение
+          value={errorMessage || rgbValue} 
           readOnly
           style={{
             color: errorMessage ? 'red' : 'white', 
-            fontWeight: 'bold',
-            marginLeft: '15px',
-            textAlign: 'center',
-            height: '40px',
             // более темный фон формы с цветом rgb
             backgroundColor: rgbValue ? hexValue : '', 
             filter: rgbValue ? 'brightness(0.8)' : '',
