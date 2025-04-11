@@ -1,0 +1,54 @@
+#root {
+  padding: 50px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.div-topnews, .div-currencyrates, .div-weather, .div-maplink, .div-livetv, .div-popular, .div-tvshedule, .div-errorhandling {
+  margin: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+nav {
+  display: flex;
+  margin: 10px;
+}
+
+a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: blue;
+}
+
+.div-searchbar {
+  margin: 10px;
+  padding: 10px;
+}
+
+button {
+  padding: 5px;
+}
+
+input {
+  padding: 5px;
+}
+
+.div-advertisement {
+  margin: 10px;
+}
+
+img {
+  max-width: 100%;
+}
+
