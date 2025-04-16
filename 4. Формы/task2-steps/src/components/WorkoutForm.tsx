@@ -7,7 +7,7 @@ interface WorkoutFormProps {
 }
 
 //Форма для ввода данных
-const WorkoutForm: React.FC<WorkoutFormProps> = ({ onAddOrUpdate, initialDate = "", initialDistance = '' }) => {
+const WorkoutForm: React.FC<WorkoutFormProps> = ({onAddOrUpdate, initialDate = "", initialDistance = '' }) => {
   const [date, setDate] = useState(initialDate);
   const [distance, setDistance] = useState(initialDistance.toString());
 

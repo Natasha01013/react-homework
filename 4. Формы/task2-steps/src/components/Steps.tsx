@@ -48,6 +48,7 @@ const WorkoutTracker: React.FC = () => {
     <div className='treker'>
       <h2>Трекер тренировок</h2>
       <WorkoutForm
+        key={editingEntry?.date || 'new'} // ключ для сброса состояния формы
         onAddOrUpdate={addOrUpdateEntry}
         initialDate={editingEntry?.date}
         initialDistance={editingEntry?.distance}
