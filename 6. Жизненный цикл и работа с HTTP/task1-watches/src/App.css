@@ -1,0 +1,52 @@
+.clock {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  min-width: 150px;
+  text-align: center;
+  position: relative;
+}
+
+.clock-name {
+  font-weight: bold;
+}
+
+.clock-time {
+  font-size: 1.5em;
+  margin: 10px 0;
+}
+
+.remove-button {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.clock-form {
+  margin-top: 10px;
+}
+
+.clock-form input[type="text"],
+.clock-form input[type="number"] {
+  margin-right: 10px;
+}
+
+.clock-form input[type="number"] {
+  width: 50px;
+}
+
+.world-clock-app {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.clock-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  gap: 10px;
+}
